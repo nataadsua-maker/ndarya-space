@@ -228,23 +228,32 @@ body {
 (function(){
   var NAMES={al:"Alabama",ak:"Alaska",az:"Arizona",ar:"Arkansas",ca:"California",co:"Colorado",ct:"Connecticut",de:"Delaware",fl:"Florida",ga:"Georgia",hi:"Hawaii",id:"Idaho",il:"Illinois",in:"Indiana",ia:"Iowa",ks:"Kansas",ky:"Kentucky",la:"Louisiana",me:"Maine",md:"Maryland",ma:"Massachusetts",mi:"Michigan",mn:"Minnesota",ms:"Mississippi",mo:"Missouri",mt:"Montana",ne:"Nebraska",nv:"Nevada",nh:"New Hampshire",nj:"New Jersey",nm:"New Mexico",ny:"New York",nc:"North Carolina",nd:"North Dakota",oh:"Ohio",ok:"Oklahoma",or:"Oregon",pa:"Pennsylvania",ri:"Rhode Island",sc:"South Carolina",sd:"South Dakota",tn:"Tennessee",tx:"Texas",ut:"Utah",vt:"Vermont",va:"Virginia",wa:"Washington",wv:"West Virginia",wi:"Wisconsin",wy:"Wyoming"};
 
-  function init(){
+  function pickHero(){
     var hero=document.querySelector('img[src*="image/5.jpg"]');
-    if(!hero){
-      var imgs=[].slice.call(document.images);
-      imgs.sort(function(a,b){return (b.naturalWidth*b.naturalHeight)-(a.naturalWidth*a.naturalHeight);});
-      hero=imgs[0];
-    }
-    if(!hero) return;
+    if(hero) return hero;
+    var imgs=[].slice.call(document.images).filter(function(im){
+      return (im.src||"").indexOf("flagcdn")===-1;   // не считаем наш же флажок
+    });
+    imgs.sort(function(a,b){return (b.naturalWidth*b.naturalHeight)-(a.naturalWidth*a.naturalHeight);});
+    return imgs[0];
+  }
 
-    var wrap=hero.parentElement;
-    if(getComputedStyle(wrap).position==="static") wrap.style.position="relative";
+  function build(hero){
+    if(!hero||hero.__flagDone) return;
+    hero.__flagDone=1;
+
+    // оборачиваем САМУ картинку в позиционированный контейнер — тогда бейдж
+    // пинится к картинке, а не к (возможно инлайновому) родителю.
+    var wrap=document.createElement("span");
+    wrap.style.cssText="position:relative;display:inline-block;line-height:0;max-width:100%";
+    hero.parentNode.insertBefore(wrap,hero);
+    wrap.appendChild(hero);
 
     var box=document.createElement("div");
-    box.style.cssText="position:absolute;left:20px;top:20px;text-align:center;z-index:5;font-family:system-ui,Arial,sans-serif;display:none";
-    box.innerHTML='<img alt="" style="width:120px;height:auto;border-radius:8px;border:3px solid #fff;box-shadow:0 8px 20px rgba(0,0,0,.45);display:block">'+
-                  '<div style="margin-top:8px;display:inline-block;background:rgba(15,23,42,.85);padding:6px 16px;border-radius:8px">'+
-                  '<b style="font-size:15px;color:#fff;font-weight:800"></b></div>';
+    box.style.cssText="position:absolute;left:12px;top:12px;text-align:center;z-index:5;font-family:system-ui,Arial,sans-serif;display:none";
+    box.innerHTML='<img alt="" style="width:110px;height:auto;border-radius:8px;border:3px solid #fff;box-shadow:0 8px 20px rgba(0,0,0,.45);display:block">'+
+                  '<div style="margin-top:6px;display:inline-block;background:rgba(15,23,42,.85);padding:5px 14px;border-radius:8px">'+
+                  '<b style="font-size:14px;color:#fff;font-weight:800"></b></div>';
     wrap.appendChild(box);
 
     function show(code){
@@ -259,6 +268,15 @@ body {
       .then(function(r){return r.json();})
       .then(function(d){ show(d.country_code==="US" ? d.region_code : ""); })
       .catch(function(){ show(""); });
+  }
+
+  function init(){
+    var hero=pickHero();
+    // картинки могут быть ещё не загружены — дождёмся, чтобы выбрать реально крупную
+    if(hero && !hero.complete){
+      hero.addEventListener("load", function(){ build(pickHero()); }, {once:true});
+    }
+    build(hero);
   }
 
   if(document.readyState!=="loading") init();
