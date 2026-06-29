@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Life-Changing Rental Assistance Programs for Seniors</title>
+<!--
+  ===== NOTES =====
+  1. HERO IMAGE: замени src в <img class="hero"> на свою ссылку (i.ibb.co или другой хост).
+  2. CTA BANNER: <a class="cta-banner"> — замени src на свой рекламный баннер/гиф и href на ссылку оффера.
+     Если рекламной картинки нет — оставь как есть, там нарисована текстовая кнопка-fallback.
+  3. Ссылки Privacy / Terms подставь рабочие.
+-->
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    background: #ffffff;
+    color: #222;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+  }
+  .header {
+    background: #ffffff;
+    border-bottom: 2px solid #e5e7eb;
+    padding: 14px 0;
+  }
+  .header-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #111;
+    letter-spacing: -0.5px;
+  }
+  .logo .dot { color: #d63031; }
+  .nav-icon {
+    width: 26px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .nav-icon span {
+    height: 3px;
+    background: #111;
+    border-radius: 2px;
+  }
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px 20px 24px;
+  }
+  h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.18;
+    color: #111;
+    margin: 0 0 14px;
+  }
+  .sub {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    color: #444;
+    margin: 0 0 22px;
+    line-height: 1.4;
+    font-style: italic;
+  }
+  .byline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 22px;
+    padding: 12px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+  .byline .avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #1f2937;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+  }
+  .byline .meta { font-family: Arial, sans-serif; font-size: 13px; color: #555; line-height: 1.4; }
+  .byline .meta strong { color: #111; font-size: 14px; display: block; }
+  .hero {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 0 22px;
+    border-radius: 4px;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+  .article p {
+    font-size: 18px;
+    line-height: 1.65;
+    margin: 0 0 18px;
+    color: #2a2a2a;
+  }
+  .article p strong { color: #111; }
+  .ad-label {
+    text-align: center;
+    color: #999;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 28px 0 10px;
+  }
+  .cta-banner {
+    display: block;
+    margin: 0 auto 18px;
+    text-decoration: none;
+    max-width: 360px;
+  }
+  .cta-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    border: 0;
+  }
+  .cta-fallback {
+    display: block;
+    background: #2c8a3e;
+    color: #fff !important;
+    text-align: center;
+    padding: 22px 24px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 3px 8px rgba(44,138,62,0.3);
+    transition: background 0.2s;
+  }
+  .cta-fallback:hover { background: #257232; }
+  .cta-sub {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+    margin: 8px 0 30px;
+  }
+  .links {
+    text-align: center;
+    margin: 30px 0 14px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+  .links a {
+    color: #1a73e8;
+    text-decoration: none;
+    margin: 0 8px;
+  }
+  .links a:hover { text-decoration: underline; }
+  .footer {
+    background: #f3f4f6;
+    border-top: 1px solid #e5e7eb;
+    padding: 22px 20px 30px;
+    font-family: Arial, sans-serif;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
+  }
+  .footer .copyright {
+    color: #444;
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+  .disclaimer {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 26px; }
+    .sub { font-size: 16px; }
+    .article p { font-size: 16px; }
+    .container { padding: 22px 16px 18px; }
+    .header-inner { padding: 0 16px; }
+    .logo { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<header class="header">
+<div class="header-inner">
+<div class="logo">News<span class="dot">Today</span></div>
+<div aria-label="Menu" class="nav-icon">
+<span></span><span></span><span></span>
+</div>
+</div>
+</header>
+<main class="container">
+<h1>Seniors, Don't Miss Out on This Life-Changing Rental Assistance Program!</h1>
+<p class="sub">Ease Your Golden Years — Discover How Section 8 Can Help Cover Your Monthly Rent!</p>
+<div class="byline">
+<div class="avatar">CA</div>
+<div class="meta">
+<strong>by Content Author</strong>
+        Assistant Editor
+      </div>
+</div>
+<!-- HERO: подмени src на свою ссылку -->
+<img alt="Happy senior couple holding keys to their new apartment" class="hero" src="https://i.ibb.co/HTwGHhgp/happy-smiling-couple-senior-people-white-hair-hugging-holding-keys-new-empty-apartment-with-moving-b.jpg"/>
+<div class="article">
+<p>Think rental assistance is just for those struggling the most? <strong>Think again!</strong> Even if you're getting by, programs like Section 8 can completely change your monthly budget — freeing up money for groceries, medicine, and the things that actually matter in retirement.</p>
+<p>The truth is, you've worked hard all your life, and you deserve to enjoy your golden years without stressing over rent. From the <strong>Section 8 Housing Choice Voucher Program</strong> to other local rental aid initiatives, these options are designed to keep seniors safe, comfortable, and independent in their own homes — no matter your income level.</p>
+<p>Most residents over 50 don't even realize they may qualify. Checking eligibility is fast, free, and could lead to part of your rent being covered every single month.</p>
+</div>
+<div class="ad-label">Advertisement</div>
+<!-- CTA BANNER: если есть рекламный баннер (GIF/PNG), вставь его в <img src>.
+         Если нет — оставь как есть, ниже стоит fallback-кнопка. -->
+<a class="cta-banner" href="https://track.yrsdfy.space/cf/click" rel="nofollow noopener">
+<!-- <img src="https://your-banner.gif" alt="Learn more about Section 8"> -->
+<span class="cta-fallback">Check My Eligibility ✓</span>
+</a>
+<p class="cta-sub">Takes less than 30 seconds · 100% Free</p>
+<div class="links">
+<a href="https://track.yrsdfy.space/cf/click" rel="nofollow noopener">Privacy Policy</a>
+<a href="https://track.yrsdfy.space/cf/click" rel="nofollow noopener">Terms of Use</a>
+</div>
+</main>
+<footer class="footer">
+<p class="copyright">© News Today. All rights reserved.</p>
+<p class="disclaimer">The content provided on this site is for informational purposes only and should not be construed as professional advice. This material may not be published, broadcast, rewritten, or redistributed without permission. We and any advertisers on our website are not affiliated with any government entity. To keep our service free of charge, we monetize through advertising placements and may receive commissions on advertisements and affiliate links. We strive to provide accurate and up-to-date information, but we make no warranties or guarantees regarding the completeness, reliability, or accuracy of the information presented. By using our site, you acknowledge and agree to these terms.</p>
+</footer>
+<!-- Подменяет CF-макросы {City} {State} {Date} в текстах ленда из query string.
+     CF добавляет ?city=Seattle&state=WA&date=23.05 при редиректе с campaign URL. -->
+<script>
+(function() {
+  var p = new URLSearchParams(location.search);
+  var d = new Date();
+  var date = (d.getMonth()+1) + '/' + d.getDate() + '/' + d.getFullYear();
+  var m = {
+    '{city}':   p.get('city')   || p.get('City')   || '',
+    '{City}':   p.get('city')   || p.get('City')   || '',
+    '{CITY}':   (p.get('city')  || p.get('City')   || '').toUpperCase(),
+    '{state}':  p.get('state')  || p.get('State')  || '',
+    '{State}':  p.get('state')  || p.get('State')  || '',
+    '{STATE}':  (p.get('state') || p.get('State')  || '').toUpperCase(),
+    '{date}':   p.get('date')   || date,
+    '{Date}':   p.get('date')   || date,
+    '{zip}':    p.get('zip')    || '',
+    '{country}': p.get('country') || ''
+  };
+  var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+  var n;
+  while ((n = w.nextNode())) {
+    var t = n.nodeValue, changed = false;
+    for (var k in m) {
+      if (m[k] && t.indexOf(k) !== -1) { t = t.split(k).join(m[k]); changed = true; }
+    }
+    if (changed) n.nodeValue = t;
+  }
+})();
+</script>
+<!-- ClickFlare lander tracking script. Вставляется перед </body> в каждый новый ленд.
+     Достан с её рабочего ленда info.loylty.site/n_fdsasnt 2026-05-23 через chrome-devtools MCP.
+     Под её tracking-domain `track.yrsdfy.space` (захардкожен внутри). Для другого домена -
+     поменять `c="https://track.yrsdfy.space"` на нужный.
+     Скрипт сам подсасывает cftmid/cpid из URL ленда (CF подкидывает при редиректе с campaign URL).
+     {{__CONTAINER_ID__}} / {{__CAMPAIGN_ID__}} - литеральные fallback'и, не подменять. -->
+<script>!function(){"use strict";var n="lp_ref",t="cpid",e="lpurl",c="https://track.yrsdfy.space",r="(?<domain>http(?:s?)://[^/]*)".concat("/cf/click"),a="(?:(?:/(?<cta>[1-9][0-9]*)/?)|(?:/))?",i="^".concat(r).concat(a).concat("(?:$|(\\?.*))"),o='javascript:window.clickflare.l="(?<original_link>'.concat(r).concat(a,'("|(\\?[^"]*"))).*'),s=function(){return new RegExp(i,"")},u=function(){return new RegExp(o,"")};function l(n){var t=function(n){return n.replace(s(),(function(n){for(var t=[],e=1;e<arguments.length;e++)t[e-1]=arguments[e];var r=t[t.length-1].domain;return n.replace(r,c)}))}(n);return'javascript:window.clickflare.l="'.concat(t,'"; void 0;')}function d(n,t){if(t&&n&&t.apply(document,[n]),/loaded|interactive|complete/.test(document.readyState))for(var e=0,c=document.links.length;e<c;e++)if(s().test(document.links[e].href)){var r=document.links[e];window.clickflare.links_replaced.has(r)||(r.href=l(r.href),window.clickflare.links_replaced.add(r))}}var f,h,m,p;!function(r,a){var i=document.onreadystatechange;window.clickflare||(window.clickflare={listeners:{},customParams:{},links_replaced:new Set,addEventListener:function(n,t){var e=this.listeners[n]||[];e.includes(t)||e.push(t),this.listeners[n]=e},dispatchEvent:function(n,t){t&&(this.customParams[n]=t),(this.listeners[n]||[]).forEach((function(n){return n(t)}))},push:function(n,t){t&&(this.customParams[n]=t),(this.listeners[n]||[]).forEach((function(n){return n(t)}))}},document.onreadystatechange=function(n){return d(n,i)},d(null,i),setTimeout((function(){!function(r,a){var i,o=function(r,a){var i=new URL("".concat(c).concat(r)),o="{",s=o+o;a.startsWith(s)||i.searchParams.set(t,a);return i.searchParams.append(n,document.referrer),i.searchParams.append(e,location.href),i.searchParams.append("lpt",document.title),i.searchParams.append("t",(new Date).getTime().toString()),i.toString()}(r,a),s=document.createElement("script"),l=document.scripts[0];s.async=1,s.src=o,s.onerror=function(){!function(){for(var n=function(n,t){var e=document.links[n];u().test(decodeURI(e.href))&&setTimeout((function(){e&&e.setAttribute("href",function(n){var t=n.match(u());if(t){var e=(t.groups||{}).original_link;return e?e.slice(0,-1):n}return n}(decodeURI(e.href)))}))},t=0,e=document.links.length;t<e;t++)n(t)}()},null===(i=l.parentNode)||void 0===i||i.insertBefore(s,l)}(r,a)})))}("".concat("/cf/tags","/").concat(new URL(window.location.href).searchParams.get("cftmid")||"{{__CONTAINER_ID__}}"),(m=new URL(window.location.href).searchParams.get(t),f=new RegExp("(^| )".concat("cf_cpid","=([^;]+)")),p=(h=document.cookie.match(f))&&h.pop()||null,m||p||"{{__CAMPAIGN_ID__}}"))}();</script>
+</body>
+</html>

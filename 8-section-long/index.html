@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Section 8 Housing Info</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f3f4f6;
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    background: #ffffff;
+    min-height: 100vh;
+  }
+  .topbar {
+    background: #d63031;
+    color: #fff;
+    text-align: center;
+    padding: 14px 20px 12px;
+  }
+  .topbar .title { font-weight: 700; font-size: 16px; }
+  .topbar .updated {
+    font-size: 12px;
+    margin-top: 4px;
+    letter-spacing: 1px;
+    opacity: 0.9;
+  }
+  .content { padding: 28px 24px 32px; }
+  h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0 0 8px;
+    line-height: 1.25;
+    text-align: center;
+    color: #111;
+  }
+  .sub {
+    color: #666;
+    text-align: center;
+    margin: 0 0 22px;
+    font-size: 14px;
+  }
+  .hero {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    margin: 0 0 14px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .badge {
+    display: block;
+    margin: 0 auto 26px;
+    background: #e94335;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 99px;
+    font-weight: 700;
+    font-size: 13px;
+    width: max-content;
+    letter-spacing: 0.4px;
+  }
+  p.body { font-size: 16px; line-height: 1.55; color: #2a2a2a; margin: 0 0 16px; }
+  h2 {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 24px 0 12px;
+    color: #111;
+  }
+  ul.checks { list-style: none; padding: 0; margin: 0 0 22px; }
+  ul.checks li {
+    padding: 8px 0 8px 28px;
+    position: relative;
+    font-size: 16px;
+    color: #222;
+    line-height: 1.4;
+  }
+  ul.checks li::before {
+    content: "✓";
+    color: #d63031;
+    font-weight: 800;
+    position: absolute;
+    left: 0;
+    top: 7px;
+    font-size: 17px;
+  }
+  .warning {
+    background: #fffbeb;
+    border-left: 4px solid #f59e0b;
+    padding: 14px 16px;
+    border-radius: 6px;
+    color: #4a4a4a;
+    font-size: 15px;
+    margin: 22px 0;
+    line-height: 1.45;
+  }
+  .warning .icon { margin-right: 6px; }
+  .cta {
+    display: block;
+    background: #2c8a3e;
+    color: #fff !important;
+    text-align: center;
+    padding: 20px 24px;
+    border-radius: 8px;
+    font-size: 21px;
+    font-weight: 700;
+    text-decoration: none;
+    margin: 24px 0 10px;
+    box-shadow: 0 2px 6px rgba(44,138,62,0.25);
+    transition: background 0.2s;
+  }
+  .cta:hover { background: #257232; }
+  .cta-sub {
+    text-align: center;
+    color: #666;
+    font-size: 13px;
+    margin: 0 0 24px;
+  }
+
+  /* Comments */
+  .comments {
+    border-top: 1px solid #eee;
+    padding-top: 22px;
+    margin-top: 28px;
+  }
+  .comments-title {
+    color: #666;
+    font-size: 15px;
+    margin: 0 0 16px;
+    font-weight: 600;
+  }
+  .comment {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .comment.reply { margin-left: 44px; }
+  .comment .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #94a3b8;
+    letter-spacing: 0.5px;
+  }
+  .comment .bubble {
+    background: #f1f2f4;
+    border-radius: 14px;
+    padding: 10px 14px;
+    max-width: 100%;
+    flex: 1;
+  }
+  .comment .author {
+    font-weight: 700;
+    font-size: 14px;
+    margin: 0 0 3px;
+    color: #111;
+  }
+  .comment .text {
+    font-size: 14px;
+    color: #2a2a2a;
+    line-height: 1.4;
+    margin: 0;
+  }
+  .comment .text a { color: #1a73e8; text-decoration: none; }
+  .comment .meta {
+    font-size: 12px;
+    color: #888;
+    margin: 6px 0 0 4px;
+  }
+  .comment .meta span { margin-right: 8px; }
+
+  .footer {
+    text-align: center;
+    color: #888;
+    font-size: 12px;
+    padding: 24px 18px 28px;
+    background: #f7f7f8;
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 24px; }
+    .content { padding: 22px 18px 28px; }
+    .cta { font-size: 19px; padding: 18px 20px; }
+    .comment.reply { margin-left: 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<div class="title">Section 8 Housing Info: {region}</div>
+<div class="updated">UPDATED MAY 27, 2026</div>
+</div>
+<div class="content">
+<h1>Seniors 50+ in {city} Can Apply for Rental Help</h1>
+<p class="sub">Available for U.S. residents • Free Application</p>
+<img alt="Senior couple reviewing rental assistance documents" class="hero" src="https://i.ibb.co/kVZRL97X/two-year-cap-instituted-for-rental-assistance.webp"/>
+<span class="badge">100% FREE TO APPLY</span>
+<p class="body">Did you know that millions of seniors qualify for housing assistance that can cover part of their monthly rent — but most never apply?</p>
+<p class="body">Most residents in {region} over 50 are unaware that they may be eligible for the Section 8 Housing Choice Voucher Program. The voucher helps pay rent in apartments, houses, and senior-friendly communities.</p>
+<p class="body">The good news? You can check if you qualify in under a minute, completely free.</p>
+<h2>What you may qualify for:</h2>
+<ul class="checks">
+<li>Help paying monthly rent</li>
+<li>Housing vouchers in your area</li>
+<li>Senior-friendly apartments</li>
+<li>Utility allowances</li>
+</ul>
+<div class="warning">
+<span class="icon">⚠️</span>Note: Application is free. You do not need to pay any fees to check eligibility in {city}.
+      </div>
+<a class="cta" href="https://track.yrsdfy.space/cf/click" rel="nofollow noopener">Check Eligibility Now</a>
+<p class="cta-sub">Takes less than 30 seconds</p>
+<div class="comments">
+<p class="comments-title">Recent Comments</p>
+<div class="comment">
+<div aria-label="Mary J." class="avatar" style="background:#7c3aed">MJ</div>
+<div>
+<div class="bubble">
+<p class="author">Mary J.</p>
+<p class="text">I'm 67 and on a fixed income. I had no idea I could qualify. Now part of my rent is covered every month!</p>
+</div>
+<div class="meta"><span>Like</span><span>·</span><span>Reply</span><span>·</span><span>14m</span></div>
+</div>
+</div>
+<div class="comment">
+<div aria-label="Robert T. Miller" class="avatar" style="background:#0ea5e9">RT</div>
+<div>
+<div class="bubble">
+<p class="author">Robert T. Miller</p>
+<p class="text">Is this real? How do I apply for {city}?</p>
+</div>
+<div class="meta"><span>Like</span><span>·</span><span>Reply</span><span>·</span><span>47m</span></div>
+</div>
+</div>
+<div class="comment reply">
+<div aria-label="Staff Support" class="avatar" style="background:#16a34a">SS</div>
+<div>
+<div class="bubble">
+<p class="author">Staff Support</p>
+<p class="text">Yes Robert! It is a free application. <a href="https://track.yrsdfy.space/cf/click" rel="nofollow noopener">You can check eligibility here.</a></p>
+</div>
+<div class="meta"><span>Like</span><span>·</span><span>Reply</span><span>·</span><span>12m</span></div>
+</div>
+</div>
+<div class="comment">
+<div aria-label="Linda K." class="avatar" style="background:#f59e0b">LK</div>
+<div>
+<div class="bubble">
+<p class="author">Linda K.</p>
+<p class="text">Took me 2 minutes to fill out. Got a call back the next week and now I'm in a much better place. Thank you!</p>
+</div>
+<div class="meta"><span>Like</span><span>·</span><span>Reply</span><span>·</span><span>1h</span></div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+      This website is not affiliated with any government agency.<br/>
+      © 2026 Housing Assistance Guide. All rights reserved.
+    </div>
+</div>
+<!-- Подменяет CF-макросы {City} {State} {Date} в текстах ленда из query string.
+     CF добавляет ?city=Seattle&state=WA&date=23.05 при редиректе с campaign URL. -->
+<script>
+(function() {
+  var p = new URLSearchParams(location.search);
+  var d = new Date();
+  var date = (d.getMonth()+1) + '/' + d.getDate() + '/' + d.getFullYear();
+  var m = {
+    '{city}':   p.get('city')   || p.get('City')   || '',
+    '{City}':   p.get('city')   || p.get('City')   || '',
+    '{CITY}':   (p.get('city')  || p.get('City')   || '').toUpperCase(),
+    '{state}':  p.get('state')  || p.get('State')  || '',
+    '{State}':  p.get('state')  || p.get('State')  || '',
+    '{STATE}':  (p.get('state') || p.get('State')  || '').toUpperCase(),
+    '{date}':   p.get('date')   || date,
+    '{Date}':   p.get('date')   || date,
+    '{zip}':    p.get('zip')    || '',
+    '{country}': p.get('country') || ''
+  };
+  var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+  var n;
+  while ((n = w.nextNode())) {
+    var t = n.nodeValue, changed = false;
+    for (var k in m) {
+      if (m[k] && t.indexOf(k) !== -1) { t = t.split(k).join(m[k]); changed = true; }
+    }
+    if (changed) n.nodeValue = t;
+  }
+})();
+</script>
+<!-- ClickFlare lander tracking script. Вставляется перед </body> в каждый новый ленд.
+     Достан с её рабочего ленда info.loylty.site/n_fdsasnt 2026-05-23 через chrome-devtools MCP.
+     Под её tracking-domain `track.yrsdfy.space` (захардкожен внутри). Для другого домена -
+     поменять `c="https://track.yrsdfy.space"` на нужный.
+     Скрипт сам подсасывает cftmid/cpid из URL ленда (CF подкидывает при редиректе с campaign URL).
+     {{__CONTAINER_ID__}} / {{__CAMPAIGN_ID__}} - литеральные fallback'и, не подменять. -->
+<script>!function(){"use strict";var n="lp_ref",t="cpid",e="lpurl",c="https://track.yrsdfy.space",r="(?<domain>http(?:s?)://[^/]*)".concat("/cf/click"),a="(?:(?:/(?<cta>[1-9][0-9]*)/?)|(?:/))?",i="^".concat(r).concat(a).concat("(?:$|(\\?.*))"),o='javascript:window.clickflare.l="(?<original_link>'.concat(r).concat(a,'("|(\\?[^"]*"))).*'),s=function(){return new RegExp(i,"")},u=function(){return new RegExp(o,"")};function l(n){var t=function(n){return n.replace(s(),(function(n){for(var t=[],e=1;e<arguments.length;e++)t[e-1]=arguments[e];var r=t[t.length-1].domain;return n.replace(r,c)}))}(n);return'javascript:window.clickflare.l="'.concat(t,'"; void 0;')}function d(n,t){if(t&&n&&t.apply(document,[n]),/loaded|interactive|complete/.test(document.readyState))for(var e=0,c=document.links.length;e<c;e++)if(s().test(document.links[e].href)){var r=document.links[e];window.clickflare.links_replaced.has(r)||(r.href=l(r.href),window.clickflare.links_replaced.add(r))}}var f,h,m,p;!function(r,a){var i=document.onreadystatechange;window.clickflare||(window.clickflare={listeners:{},customParams:{},links_replaced:new Set,addEventListener:function(n,t){var e=this.listeners[n]||[];e.includes(t)||e.push(t),this.listeners[n]=e},dispatchEvent:function(n,t){t&&(this.customParams[n]=t),(this.listeners[n]||[]).forEach((function(n){return n(t)}))},push:function(n,t){t&&(this.customParams[n]=t),(this.listeners[n]||[]).forEach((function(n){return n(t)}))}},document.onreadystatechange=function(n){return d(n,i)},d(null,i),setTimeout((function(){!function(r,a){var i,o=function(r,a){var i=new URL("".concat(c).concat(r)),o="{",s=o+o;a.startsWith(s)||i.searchParams.set(t,a);return i.searchParams.append(n,document.referrer),i.searchParams.append(e,location.href),i.searchParams.append("lpt",document.title),i.searchParams.append("t",(new Date).getTime().toString()),i.toString()}(r,a),s=document.createElement("script"),l=document.scripts[0];s.async=1,s.src=o,s.onerror=function(){!function(){for(var n=function(n,t){var e=document.links[n];u().test(decodeURI(e.href))&&setTimeout((function(){e&&e.setAttribute("href",function(n){var t=n.match(u());if(t){var e=(t.groups||{}).original_link;return e?e.slice(0,-1):n}return n}(decodeURI(e.href)))}))},t=0,e=document.links.length;t<e;t++)n(t)}()},null===(i=l.parentNode)||void 0===i||i.insertBefore(s,l)}(r,a)})))}("".concat("/cf/tags","/").concat(new URL(window.location.href).searchParams.get("cftmid")||"{{__CONTAINER_ID__}}"),(m=new URL(window.location.href).searchParams.get(t),f=new RegExp("(^| )".concat("cf_cpid","=([^;]+)")),p=(h=document.cookie.match(f))&&h.pop()||null,m||p||"{{__CAMPAIGN_ID__}}"))}();</script>
+</body>
+</html>

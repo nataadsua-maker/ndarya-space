@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Get Section 8 Rental Assistance</title>
+<!--
+  ===== IMAGE NOTE =====
+  Картинки сейчас на placehold.co (плейсхолдеры).
+  Перед заливом замени src в <img class="hero"> на реальное фото 50+.
+  Готовые подборки:
+    - https://unsplash.com/s/photos/senior-couple-home
+    - https://unsplash.com/s/photos/older-woman-keys
+    - https://www.pexels.com/search/senior%20couple%20house/
+  Кнопку CTA href="#" замени на ссылку оффера.
+-->
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f3f4f6;
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    min-height: 100vh;
+  }
+  .topbar {
+    background: #d63031;
+    color: #fff;
+    text-align: center;
+    padding: 16px 20px;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+  }
+  .content { padding: 28px 24px 32px; }
+  h1 {
+    font-size: 30px;
+    font-weight: 800;
+    margin: 0 0 10px;
+    line-height: 1.2;
+    text-align: center;
+    color: #111;
+  }
+  .sub {
+    color: #555;
+    text-align: center;
+    margin: 0 0 22px;
+    font-size: 16px;
+  }
+  .hero {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    margin: 0 0 18px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .badge {
+    display: block;
+    margin: 0 auto 32px;
+    background: #e94335;
+    color: #fff;
+    padding: 9px 22px;
+    border-radius: 99px;
+    font-weight: 700;
+    font-size: 14px;
+    width: max-content;
+    letter-spacing: 0.3px;
+  }
+  h2 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 28px 0 14px;
+    color: #111;
+  }
+  ul.checks { list-style: none; padding: 0; margin: 0 0 22px; }
+  ul.checks li {
+    padding: 9px 0 9px 30px;
+    position: relative;
+    font-size: 17px;
+    color: #222;
+    line-height: 1.4;
+  }
+  ul.checks li::before {
+    content: "✓";
+    color: #d63031;
+    font-weight: 800;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    font-size: 18px;
+  }
+  .warning {
+    background: #fffbeb;
+    border-left: 4px solid #f59e0b;
+    padding: 14px 16px;
+    border-radius: 6px;
+    color: #4a4a4a;
+    font-size: 15px;
+    margin: 22px 0;
+    line-height: 1.45;
+  }
+  .warning .icon { margin-right: 6px; }
+  .cta {
+    display: block;
+    background: #2c8a3e;
+    color: #fff !important;
+    text-align: center;
+    padding: 20px 24px;
+    border-radius: 8px;
+    font-size: 21px;
+    font-weight: 800;
+    text-decoration: none;
+    margin: 28px 0 10px;
+    box-shadow: 0 2px 6px rgba(44,138,62,0.25);
+    transition: background 0.2s;
+  }
+  .cta:hover { background: #257232; }
+  .cta-sub {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin: 0 0 24px;
+  }
+  .disclaimer {
+    text-align: center;
+    color: #888;
+    font-size: 13px;
+    padding: 18px 0 0;
+    border-top: 1px solid #eee;
+    margin-top: 18px;
+    line-height: 1.5;
+  }
+  @media (max-width: 480px) {
+    h1 { font-size: 26px; }
+    .content { padding: 22px 18px 28px; }
+    .cta { font-size: 19px; padding: 18px 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="topbar">Section 8 Housing Assistance — USA</div>
+<div class="content">
+<h1>Get Section 8 Rental Help</h1>
+<p class="sub">Available for U.S. residents 50+ while applications are open</p>
+<img alt="Happy senior couple holding keys to their new apartment" class="hero" src="https://i.ibb.co/HTwGHhgp/happy-smiling-couple-senior-people-white-hair-hugging-holding-keys-new-empty-apartment-with-moving-b.jpg"/>
+<span class="badge">100% FREE TO APPLY</span>
+<h2>What You Get</h2>
+<ul class="checks">
+<li>Help with monthly rent payments</li>
+<li>No fees, no payment required</li>
+<li>Quick online sign-up</li>
+<li>Senior-friendly housing options</li>
+</ul>
+<div class="warning">
+<span class="icon">⚠️</span>Limited spots available. Eligibility depends on location and income.
+      </div>
+<a class="cta" href="https://track.yrsdfy.space/cf/click" rel="nofollow noopener">Check My Eligibility</a>
+<p class="cta-sub">Takes less than 30 seconds</p>
+<p class="disclaimer">This website is not affiliated with any government agency.</p>
+</div>
+</div>
+<!-- Подменяет CF-макросы {City} {State} {Date} в текстах ленда из query string.
+     CF добавляет ?city=Seattle&state=WA&date=23.05 при редиректе с campaign URL. -->
+<script>
+(function() {
+  var p = new URLSearchParams(location.search);
+  var d = new Date();
+  var date = (d.getMonth()+1) + '/' + d.getDate() + '/' + d.getFullYear();
+  var m = {
+    '{city}':   p.get('city')   || p.get('City')   || '',
+    '{City}':   p.get('city')   || p.get('City')   || '',
+    '{CITY}':   (p.get('city')  || p.get('City')   || '').toUpperCase(),
+    '{state}':  p.get('state')  || p.get('State')  || '',
+    '{State}':  p.get('state')  || p.get('State')  || '',
+    '{STATE}':  (p.get('state') || p.get('State')  || '').toUpperCase(),
+    '{date}':   p.get('date')   || date,
+    '{Date}':   p.get('date')   || date,
+    '{zip}':    p.get('zip')    || '',
+    '{country}': p.get('country') || ''
+  };
+  var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+  var n;
+  while ((n = w.nextNode())) {
+    var t = n.nodeValue, changed = false;
+    for (var k in m) {
+      if (m[k] && t.indexOf(k) !== -1) { t = t.split(k).join(m[k]); changed = true; }
+    }
+    if (changed) n.nodeValue = t;
+  }
+})();
+</script>
+<!-- ClickFlare lander tracking script. Вставляется перед </body> в каждый новый ленд.
+     Достан с её рабочего ленда info.loylty.site/n_fdsasnt 2026-05-23 через chrome-devtools MCP.
+     Под её tracking-domain `track.yrsdfy.space` (захардкожен внутри). Для другого домена -
+     поменять `c="https://track.yrsdfy.space"` на нужный.
+     Скрипт сам подсасывает cftmid/cpid из URL ленда (CF подкидывает при редиректе с campaign URL).
+     {{__CONTAINER_ID__}} / {{__CAMPAIGN_ID__}} - литеральные fallback'и, не подменять. -->
+<script>!function(){"use strict";var n="lp_ref",t="cpid",e="lpurl",c="https://track.yrsdfy.space",r="(?<domain>http(?:s?)://[^/]*)".concat("/cf/click"),a="(?:(?:/(?<cta>[1-9][0-9]*)/?)|(?:/))?",i="^".concat(r).concat(a).concat("(?:$|(\\?.*))"),o='javascript:window.clickflare.l="(?<original_link>'.concat(r).concat(a,'("|(\\?[^"]*"))).*'),s=function(){return new RegExp(i,"")},u=function(){return new RegExp(o,"")};function l(n){var t=function(n){return n.replace(s(),(function(n){for(var t=[],e=1;e<arguments.length;e++)t[e-1]=arguments[e];var r=t[t.length-1].domain;return n.replace(r,c)}))}(n);return'javascript:window.clickflare.l="'.concat(t,'"; void 0;')}function d(n,t){if(t&&n&&t.apply(document,[n]),/loaded|interactive|complete/.test(document.readyState))for(var e=0,c=document.links.length;e<c;e++)if(s().test(document.links[e].href)){var r=document.links[e];window.clickflare.links_replaced.has(r)||(r.href=l(r.href),window.clickflare.links_replaced.add(r))}}var f,h,m,p;!function(r,a){var i=document.onreadystatechange;window.clickflare||(window.clickflare={listeners:{},customParams:{},links_replaced:new Set,addEventListener:function(n,t){var e=this.listeners[n]||[];e.includes(t)||e.push(t),this.listeners[n]=e},dispatchEvent:function(n,t){t&&(this.customParams[n]=t),(this.listeners[n]||[]).forEach((function(n){return n(t)}))},push:function(n,t){t&&(this.customParams[n]=t),(this.listeners[n]||[]).forEach((function(n){return n(t)}))}},document.onreadystatechange=function(n){return d(n,i)},d(null,i),setTimeout((function(){!function(r,a){var i,o=function(r,a){var i=new URL("".concat(c).concat(r)),o="{",s=o+o;a.startsWith(s)||i.searchParams.set(t,a);return i.searchParams.append(n,document.referrer),i.searchParams.append(e,location.href),i.searchParams.append("lpt",document.title),i.searchParams.append("t",(new Date).getTime().toString()),i.toString()}(r,a),s=document.createElement("script"),l=document.scripts[0];s.async=1,s.src=o,s.onerror=function(){!function(){for(var n=function(n,t){var e=document.links[n];u().test(decodeURI(e.href))&&setTimeout((function(){e&&e.setAttribute("href",function(n){var t=n.match(u());if(t){var e=(t.groups||{}).original_link;return e?e.slice(0,-1):n}return n}(decodeURI(e.href)))}))},t=0,e=document.links.length;t<e;t++)n(t)}()},null===(i=l.parentNode)||void 0===i||i.insertBefore(s,l)}(r,a)})))}("".concat("/cf/tags","/").concat(new URL(window.location.href).searchParams.get("cftmid")||"{{__CONTAINER_ID__}}"),(m=new URL(window.location.href).searchParams.get(t),f=new RegExp("(^| )".concat("cf_cpid","=([^;]+)")),p=(h=document.cookie.match(f))&&h.pop()||null,m||p||"{{__CAMPAIGN_ID__}}"))}();</script>
+</body>
+</html>

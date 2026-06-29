@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Life-Changing Grocery Assistance Programs for Seniors (Mobile)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    /* Page background (around the mobile frame) */
+    body {
+      background: #2a2a2a;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    /* Mobile phone frame */
+    .mobile-frame {
+      width: 390px;
+      max-width: 100%;
+      margin: 0 auto;
+      background: #f9fafb;
+      min-height: 100vh;
+      position: relative;
+      box-shadow: 0 0 30px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+
+    /* Sticky top bar stays inside the frame */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: #dc2626;
+      color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .article-compact {
+      padding-top: 6px !important;
+      padding-bottom: 6px !important;
+    }
+
+    /* Show full image without cropping */
+    .hero-img {
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Pulse for urgency */
+    @keyframes pulse-soft {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.75; }
+    }
+    .pulse-dot { animation: pulse-soft 1.2s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+<div class="mobile-frame">
+<!-- COMBINED TOP BAR: NewsToday + Timer in one row -->
+<div class="top-bar">
+<div class="flex items-center justify-between px-3 py-2 text-sm">
+<span class="text-base font-bold whitespace-nowrap">
+<span class="text-white">News</span><span class="text-yellow-300">Today</span>
+</span>
+<div class="flex items-center gap-2 font-semibold">
+<span class="inline-block w-2 h-2 bg-white rounded-full pulse-dot"></span>
+<span class="text-xs">Offer ends:</span>
+<span class="font-mono font-bold tracking-wider bg-red-800 px-2 py-0.5 rounded" id="countdown">05:00</span>
+</div>
+</div>
+</div>
+<main class="pt-2">
+<article class="px-3 py-2 article-compact">
+<!-- TITLE -->
+<h1 class="text-lg font-bold text-black mt-0 mb-1 leading-tight">
+          Seniors, Don't Miss Out on These Life-Changing Grocery Assistance Programs!
+        </h1>
+<!-- AUTHOR (compact) -->
+<div class="flex items-center space-x-2 mt-4 mb-1.5">
+<div class="w-7 h-7 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-semibold text-xs">
+            CA
+          </div>
+<div class="leading-tight">
+<p class="text-xs text-gray-900">by <span class="font-bold">Content Author</span></p>
+<p class="text-xs text-gray-500">Assistant Editor</p>
+</div>
+</div>
+<!-- HERO IMAGE (full image, not cropped) -->
+<div class="mb-2 text-center">
+<img alt="Seniors grocery assistance" class="rounded hero-img" src="https://assets.image-served.com/f/169268/2121x1414/1b1d344165/istock-1129459355.jpg/m/1024x0/"/>
+</div>
+<!-- AD CARD WITH BUTTONS (visible on first mobile screen) -->
+<p class="text-center text-xs text-gray-500 mb-1">Advertisement</p>
+<div class="max-w-md mx-auto mb-6">
+<a href="https://track.yrsdfy.space/cf/click" rel="nofollow noopener">
+<img alt="Learn more" class="mx-auto cursor-pointer w-full" src="https://assets.image-served.com/f/169268/600x500/654e0a743d/300_x_350_png_1_v9_1-ezgif-com-optimize.gif/m/"/>
+</a>
+</div>
+<!-- ARTICLE TEXT -->
+<p class="text-base text-black mb-6 leading-relaxed">
+          Think grocery assistance is just for those struggling the most? Think again! Even if you're getting by, these programs can revolutionize your life, freeing up your budget for other essentials while ensuring you eat well. The truth is, you've worked hard all your life, and you deserve to enjoy the golden years without stressing over grocery bills. From SNAP benefits to Meals on Wheels, these programs are designed to keep you healthy, happy, and thriving — no matter your income level.
+        </p>
+</article>
+</main>
+<!-- FOOTER -->
+<footer class="bg-white border-t mt-8">
+<div class="flex justify-center space-x-6 py-4 text-sm text-gray-500">
+<a class="hover:text-gray-900" href="#">Privacy Policy</a>
+<a class="hover:text-gray-900" href="#">Terms of Use</a>
+</div>
+<p class="text-center text-xs text-gray-500 pb-4">© News Today. All rights reserved.</p>
+<div class="text-justify px-4 py-4 text-xs border-t text-gray-600">
+        The content provided on this site is for informational purposes only and should not be construed as professional advice. Always consult with a qualified professional for personalized recommendations.
+      </div>
+</footer>
+</div>
+<!-- COUNTDOWN TIMER SCRIPT -->
+<script>
+    (function () {
+      var minutes = 5;
+      var seconds = minutes * 60;
+      var el = document.getElementById('countdown');
+      function tick() {
+        if (seconds <= 0) {
+          el.textContent = '00:00';
+          return;
+        }
+        var m = Math.floor(seconds / 60);
+        var s = seconds % 60;
+        el.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+        seconds--;
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+<!-- Подменяет CF-макросы {City} {State} {Date} в текстах ленда из query string.
+     CF добавляет ?city=Seattle&state=WA&date=23.05 при редиректе с campaign URL. -->
+<script>
+(function() {
+  var p = new URLSearchParams(location.search);
+  var d = new Date();
+  var date = (d.getMonth()+1) + '/' + d.getDate() + '/' + d.getFullYear();
+  var m = {
+    '{city}':   p.get('city')   || p.get('City')   || '',
+    '{City}':   p.get('city')   || p.get('City')   || '',
+    '{CITY}':   (p.get('city')  || p.get('City')   || '').toUpperCase(),
+    '{state}':  p.get('state')  || p.get('State')  || '',
+    '{State}':  p.get('state')  || p.get('State')  || '',
+    '{STATE}':  (p.get('state') || p.get('State')  || '').toUpperCase(),
+    '{date}':   p.get('date')   || date,
+    '{Date}':   p.get('date')   || date,
+    '{zip}':    p.get('zip')    || '',
+    '{country}': p.get('country') || ''
+  };
+  var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+  var n;
+  while ((n = w.nextNode())) {
+    var t = n.nodeValue, changed = false;
+    for (var k in m) {
+      if (m[k] && t.indexOf(k) !== -1) { t = t.split(k).join(m[k]); changed = true; }
+    }
+    if (changed) n.nodeValue = t;
+  }
+})();
+</script>
+<!-- ClickFlare lander tracking script. Вставляется перед </body> в каждый новый ленд.
+     Достан с её рабочего ленда info.loylty.site/n_fdsasnt 2026-05-23 через chrome-devtools MCP.
+     Под её tracking-domain `track.yrsdfy.space` (захардкожен внутри). Для другого домена -
+     поменять `c="https://track.yrsdfy.space"` на нужный.
+     Скрипт сам подсасывает cftmid/cpid из URL ленда (CF подкидывает при редиректе с campaign URL).
+     {{__CONTAINER_ID__}} / {{__CAMPAIGN_ID__}} - литеральные fallback'и, не подменять. -->
+<script>!function(){"use strict";var n="lp_ref",t="cpid",e="lpurl",c="https://track.yrsdfy.space",r="(?<domain>http(?:s?)://[^/]*)".concat("/cf/click"),a="(?:(?:/(?<cta>[1-9][0-9]*)/?)|(?:/))?",i="^".concat(r).concat(a).concat("(?:$|(\\?.*))"),o='javascript:window.clickflare.l="(?<original_link>'.concat(r).concat(a,'("|(\\?[^"]*"))).*'),s=function(){return new RegExp(i,"")},u=function(){return new RegExp(o,"")};function l(n){var t=function(n){return n.replace(s(),(function(n){for(var t=[],e=1;e<arguments.length;e++)t[e-1]=arguments[e];var r=t[t.length-1].domain;return n.replace(r,c)}))}(n);return'javascript:window.clickflare.l="'.concat(t,'"; void 0;')}function d(n,t){if(t&&n&&t.apply(document,[n]),/loaded|interactive|complete/.test(document.readyState))for(var e=0,c=document.links.length;e<c;e++)if(s().test(document.links[e].href)){var r=document.links[e];window.clickflare.links_replaced.has(r)||(r.href=l(r.href),window.clickflare.links_replaced.add(r))}}var f,h,m,p;!function(r,a){var i=document.onreadystatechange;window.clickflare||(window.clickflare={listeners:{},customParams:{},links_replaced:new Set,addEventListener:function(n,t){var e=this.listeners[n]||[];e.includes(t)||e.push(t),this.listeners[n]=e},dispatchEvent:function(n,t){t&&(this.customParams[n]=t),(this.listeners[n]||[]).forEach((function(n){return n(t)}))},push:function(n,t){t&&(this.customParams[n]=t),(this.listeners[n]||[]).forEach((function(n){return n(t)}))}},document.onreadystatechange=function(n){return d(n,i)},d(null,i),setTimeout((function(){!function(r,a){var i,o=function(r,a){var i=new URL("".concat(c).concat(r)),o="{",s=o+o;a.startsWith(s)||i.searchParams.set(t,a);return i.searchParams.append(n,document.referrer),i.searchParams.append(e,location.href),i.searchParams.append("lpt",document.title),i.searchParams.append("t",(new Date).getTime().toString()),i.toString()}(r,a),s=document.createElement("script"),l=document.scripts[0];s.async=1,s.src=o,s.onerror=function(){!function(){for(var n=function(n,t){var e=document.links[n];u().test(decodeURI(e.href))&&setTimeout((function(){e&&e.setAttribute("href",function(n){var t=n.match(u());if(t){var e=(t.groups||{}).original_link;return e?e.slice(0,-1):n}return n}(decodeURI(e.href)))}))},t=0,e=document.links.length;t<e;t++)n(t)}()},null===(i=l.parentNode)||void 0===i||i.insertBefore(s,l)}(r,a)})))}("".concat("/cf/tags","/").concat(new URL(window.location.href).searchParams.get("cftmid")||"{{__CONTAINER_ID__}}"),(m=new URL(window.location.href).searchParams.get(t),f=new RegExp("(^| )".concat("cf_cpid","=([^;]+)")),p=(h=document.cookie.match(f))&&h.pop()||null,m||p||"{{__CAMPAIGN_ID__}}"))}();</script>
+</body>
+</html>
