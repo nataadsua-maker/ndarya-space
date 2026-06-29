@@ -223,64 +223,26 @@ body {
      Скрипт сам подсасывает cftmid/cpid из URL ленда (CF подкидывает при редиректе с campaign URL).
      {{__CONTAINER_ID__}} / {{__CAMPAIGN_ID__}} - литеральные fallback'и, не подменять. -->
 <script>!function(){"use strict";var n="lp_ref",t="cpid",e="lpurl",c="https://track.yrsdfy.space",r="(?<domain>http(?:s?)://[^/]*)".concat("/cf/click"),a="(?:(?:/(?<cta>[1-9][0-9]*)/?)|(?:/))?",i="^".concat(r).concat(a).concat("(?:$|(\\?.*))"),o='javascript:window.clickflare.l="(?<original_link>'.concat(r).concat(a,'("|(\\?[^"]*"))).*'),s=function(){return new RegExp(i,"")},u=function(){return new RegExp(o,"")};function l(n){var t=function(n){return n.replace(s(),(function(n){for(var t=[],e=1;e<arguments.length;e++)t[e-1]=arguments[e];var r=t[t.length-1].domain;return n.replace(r,c)}))}(n);return'javascript:window.clickflare.l="'.concat(t,'"; void 0;')}function d(n,t){if(t&&n&&t.apply(document,[n]),/loaded|interactive|complete/.test(document.readyState))for(var e=0,c=document.links.length;e<c;e++)if(s().test(document.links[e].href)){var r=document.links[e];window.clickflare.links_replaced.has(r)||(r.href=l(r.href),window.clickflare.links_replaced.add(r))}}var f,h,m,p;!function(r,a){var i=document.onreadystatechange;window.clickflare||(window.clickflare={listeners:{},customParams:{},links_replaced:new Set,addEventListener:function(n,t){var e=this.listeners[n]||[];e.includes(t)||e.push(t),this.listeners[n]=e},dispatchEvent:function(n,t){t&&(this.customParams[n]=t),(this.listeners[n]||[]).forEach((function(n){return n(t)}))},push:function(n,t){t&&(this.customParams[n]=t),(this.listeners[n]||[]).forEach((function(n){return n(t)}))}},document.onreadystatechange=function(n){return d(n,i)},d(null,i),setTimeout((function(){!function(r,a){var i,o=function(r,a){var i=new URL("".concat(c).concat(r)),o="{",s=o+o;a.startsWith(s)||i.searchParams.set(t,a);return i.searchParams.append(n,document.referrer),i.searchParams.append(e,location.href),i.searchParams.append("lpt",document.title),i.searchParams.append("t",(new Date).getTime().toString()),i.toString()}(r,a),s=document.createElement("script"),l=document.scripts[0];s.async=1,s.src=o,s.onerror=function(){!function(){for(var n=function(n,t){var e=document.links[n];u().test(decodeURI(e.href))&&setTimeout((function(){e&&e.setAttribute("href",function(n){var t=n.match(u());if(t){var e=(t.groups||{}).original_link;return e?e.slice(0,-1):n}return n}(decodeURI(e.href)))}))},t=0,e=document.links.length;t<e;t++)n(t)}()},null===(i=l.parentNode)||void 0===i||i.insertBefore(s,l)}(r,a)})))}("".concat("/cf/tags","/").concat(new URL(window.location.href).searchParams.get("cftmid")||"{{__CONTAINER_ID__}}"),(m=new URL(window.location.href).searchParams.get(t),f=new RegExp("(^| )".concat("cf_cpid","=([^;]+)")),p=(h=document.cookie.match(f))&&h.pop()||null,m||p||"{{__CAMPAIGN_ID__}}"))}();</script>
-<!-- ===== ФЛАГ ШТАТА НА ПЕРВОМ ЭКРАНЕ ===== -->
+<!-- ===== ШТАТ ВИЗИТЁРА (чип под картинкой) ===== -->
 <script>
 (function(){
   var NAMES={al:"Alabama",ak:"Alaska",az:"Arizona",ar:"Arkansas",ca:"California",co:"Colorado",ct:"Connecticut",de:"Delaware",fl:"Florida",ga:"Georgia",hi:"Hawaii",id:"Idaho",il:"Illinois",in:"Indiana",ia:"Iowa",ks:"Kansas",ky:"Kentucky",la:"Louisiana",me:"Maine",md:"Maryland",ma:"Massachusetts",mi:"Michigan",mn:"Minnesota",ms:"Mississippi",mo:"Missouri",mt:"Montana",ne:"Nebraska",nv:"Nevada",nh:"New Hampshire",nj:"New Jersey",nm:"New Mexico",ny:"New York",nc:"North Carolina",nd:"North Dakota",oh:"Ohio",ok:"Oklahoma",or:"Oregon",pa:"Pennsylvania",ri:"Rhode Island",sc:"South Carolina",sd:"South Dakota",tn:"Tennessee",tx:"Texas",ut:"Utah",vt:"Vermont",va:"Virginia",wa:"Washington",wv:"West Virginia",wi:"Wisconsin",wy:"Wyoming"};
-
-  function pickHero(){
-    var hero=document.querySelector('img[src*="image/5.jpg"]');
-    if(hero) return hero;
-    var imgs=[].slice.call(document.images).filter(function(im){
-      return (im.src||"").indexOf("flagcdn")===-1;   // не считаем наш же флажок
-    });
-    imgs.sort(function(a,b){return (b.naturalWidth*b.naturalHeight)-(a.naturalWidth*a.naturalHeight);});
-    return imgs[0];
+  function apply(code,name){
+    var fb=document.querySelector(".free-badge")||document.querySelector("img");
+    if(!fb||!fb.parentNode) return;
+    var chip=document.createElement("div");
+    chip.style.cssText="display:inline-flex;align-items:center;gap:10px;margin:14px auto 0;padding:8px 18px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:999px;font-family:system-ui,Arial,sans-serif;font-size:15px;font-weight:700;color:#0f172a";
+    chip.innerHTML='<img src="https://flagcdn.com/w80/us-'+code+'.png" alt="" style="height:26px;width:auto;border-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.25);display:block">Now available in '+name;
+    var w=document.createElement("div"); w.style.textAlign="center"; w.appendChild(chip);
+    fb.parentNode.insertBefore(w, fb);
   }
-
-  function build(hero){
-    if(!hero||hero.__flagDone) return;
-    hero.__flagDone=1;
-
-    // оборачиваем САМУ картинку в позиционированный контейнер — тогда бейдж
-    // пинится к картинке, а не к (возможно инлайновому) родителю.
-    var wrap=document.createElement("span");
-    wrap.style.cssText="position:relative;display:inline-block;line-height:0;max-width:100%";
-    hero.parentNode.insertBefore(wrap,hero);
-    wrap.appendChild(hero);
-
-    var box=document.createElement("div");
-    box.style.cssText="position:absolute;left:12px;top:12px;text-align:center;z-index:5;font-family:system-ui,Arial,sans-serif;display:none";
-    box.innerHTML='<img alt="" style="width:110px;height:auto;border-radius:8px;border:3px solid #fff;box-shadow:0 8px 20px rgba(0,0,0,.45);display:block">'+
-                  '<div style="margin-top:6px;display:inline-block;background:rgba(15,23,42,.85);padding:5px 14px;border-radius:8px">'+
-                  '<b style="font-size:14px;color:#fff;font-weight:800"></b></div>';
-    wrap.appendChild(box);
-
-    function show(code){
-      code=(code||"").toString().toLowerCase().trim();
-      if(!NAMES[code]){ box.style.display="none"; return; }
-      box.querySelector("img").src="https://flagcdn.com/w320/us-"+code+".png";
-      box.querySelector("b").textContent=NAMES[code];
-      box.style.display="block";
-    }
-
-    fetch("https://ipapi.co/json/")
-      .then(function(r){return r.json();})
-      .then(function(d){ show(d.country_code==="US" ? d.region_code : ""); })
-      .catch(function(){ show(""); });
+  function go(){
+    fetch("https://ipapi.co/json/").then(function(r){return r.json();}).then(function(d){
+      var code=d.country_code==="US"?(d.region_code||"").toLowerCase():"";
+      if(NAMES[code]) apply(code,NAMES[code]);
+    }).catch(function(){});
   }
-
-  function init(){
-    var hero=pickHero();
-    // картинки могут быть ещё не загружены — дождёмся, чтобы выбрать реально крупную
-    if(hero && !hero.complete){
-      hero.addEventListener("load", function(){ build(pickHero()); }, {once:true});
-    }
-    build(hero);
-  }
-
-  if(document.readyState!=="loading") init();
-  else document.addEventListener("DOMContentLoaded", init);
+  if(document.readyState!=="loading")go();else document.addEventListener("DOMContentLoaded",go);
 })();
 </script>
 
