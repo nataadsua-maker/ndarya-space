@@ -50,11 +50,12 @@
 
         /* Content Area */
         .content {
-            padding: 20px;
+            padding: 6px 20px 20px;
         }
-        
+
         h1 {
             font-size: 26px;
+            margin-top: 4px;
             margin-bottom: 10px;
             line-height: 1.2;
             color: #000;
@@ -337,19 +338,19 @@
   var d = new Date();
   var date = (d.getMonth()+1) + '/' + d.getDate() + '/' + d.getFullYear();
   var m = {
-    '{city}':   p.get('city')   || p.get('City')   || '',
-    '{City}':   p.get('city')   || p.get('City')   || '',
-    '{CITY}':   (p.get('city')  || p.get('City')   || '').toUpperCase(),
-    '{state}':  p.get('state')  || p.get('State')  || '',
-    '{State}':  p.get('state')  || p.get('State')  || '',
-    '{STATE}':  (p.get('state') || p.get('State')  || '').toUpperCase(),
-    '{region}': p.get('state')  || p.get('region') || '',
-    '{Region}': p.get('state')  || p.get('region') || '',
-    '{REGION}': (p.get('state') || p.get('region') || '').toUpperCase(),
+    '{city}':   p.get('city')   || p.get('City')   || 'your area',
+    '{City}':   p.get('city')   || p.get('City')   || 'Your Area',
+    '{CITY}':   (p.get('city')  || p.get('City')   || 'your area').toUpperCase(),
+    '{state}':  p.get('state')  || p.get('State')  || 'your state',
+    '{State}':  p.get('state')  || p.get('State')  || 'Your State',
+    '{STATE}':  (p.get('state') || p.get('State')  || 'your state').toUpperCase(),
+    '{region}': p.get('state')  || p.get('region') || 'your state',
+    '{Region}': p.get('state')  || p.get('region') || 'Your State',
+    '{REGION}': (p.get('state') || p.get('region') || 'your state').toUpperCase(),
     '{date}':   p.get('date')   || date,
     '{Date}':   p.get('date')   || date,
-    '{zip}':    p.get('zip')    || '',
-    '{country}': p.get('country') || ''
+    '{zip}':    p.get('zip')    || 'your area',
+    '{country}': p.get('country') || 'the U.S.'
   };
   var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
   var n;
