@@ -365,11 +365,12 @@
       if (changed) n.nodeValue = t;
     }
   };
-  // CF передал параметры — заполняем сразу (без ожидания IP).
-  if (pCity || pState) window.__fillGeo(pCity, pState);
-  // Иначе ждём гео по IP (его подставит скрипт бейджа). Подстраховка: если IP-гео
-  // не ответит за 1.5с — ставим дефолтные слова, чтобы не висел литерал {city}.
-  else setTimeout(function(){ window.__fillGeo('', ''); }, 1500);
+  window.__pGeo = { city: pCity, state: pState };
+  // Оба параметра пришли — заполняем сразу (без ожидания IP).
+  if (pCity && pState) window.__fillGeo(pCity, pState);
+  // Иначе ждём гео по IP (скрипт бейджа дозаполнит недостающее). Подстраховка: если
+  // IP-гео не ответит за 1.5с — ставим что есть (остальное дефолтом), без литерала.
+  else setTimeout(function(){ window.__fillGeo(pCity, pState); }, 1500);
 })();
 </script>
 <!-- ClickFlare lander tracking script. Вставляется перед </body> в каждый новый ленд.
@@ -409,9 +410,10 @@
       // Если CF-параметров не было — заполнить шапку/хедлайн/тексты тем же гео по IP,
       // чтобы они совпадали с бейджем (а не показывали «your state»).
       if(window.__fillGeo && !window.__geoApplied){
-        var city=(d.country_code==="US"&&d.city)?d.city:"";
-        var state=(d.country_code==="US")?(NAMES[code]||d.region||""):"";
-        window.__fillGeo(city,state);
+        var g=window.__pGeo||{};
+        var ipCity=(d.country_code==="US"&&d.city)?d.city:"";
+        var ipState=(d.country_code==="US")?(NAMES[code]||d.region||""):"";
+        window.__fillGeo(g.city||ipCity, g.state||ipState);
       }
     }).catch(function(){ if(window.__fillGeo) window.__fillGeo("",""); });
   }
