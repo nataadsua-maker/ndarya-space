@@ -337,30 +337,36 @@
   var p = new URLSearchParams(location.search);
   var d = new Date();
   var date = (d.getMonth()+1) + '/' + d.getDate() + '/' + d.getFullYear();
-  var m = {
-    '{city}':   p.get('city')   || p.get('City')   || 'your area',
-    '{City}':   p.get('city')   || p.get('City')   || 'Your Area',
-    '{CITY}':   (p.get('city')  || p.get('City')   || 'your area').toUpperCase(),
-    '{state}':  p.get('state')  || p.get('State')  || 'your state',
-    '{State}':  p.get('state')  || p.get('State')  || 'Your State',
-    '{STATE}':  (p.get('state') || p.get('State')  || 'your state').toUpperCase(),
-    '{region}': p.get('state')  || p.get('region') || 'your state',
-    '{Region}': p.get('state')  || p.get('region') || 'Your State',
-    '{REGION}': (p.get('state') || p.get('region') || 'your state').toUpperCase(),
-    '{date}':   p.get('date')   || date,
-    '{Date}':   p.get('date')   || date,
-    '{zip}':    p.get('zip')    || 'your area',
-    '{country}': p.get('country') || 'the U.S.'
-  };
-  var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-  var n;
-  while ((n = w.nextNode())) {
-    var t = n.nodeValue, changed = false;
-    for (var k in m) {
-      if (m[k] && t.indexOf(k) !== -1) { t = t.split(k).join(m[k]); changed = true; }
+  var pCity  = p.get('city')  || p.get('City')   || '';
+  var pState = p.get('state') || p.get('State')  || p.get('region') || p.get('Region') || '';
+  function ucWords(s){ return s.replace(/\b\w/g, function(c){ return c.toUpperCase(); }); }
+  // Заполняет макросы в DOM реальными city/state. Источник — CF-параметры, а если
+  // их нет — гео по IP (его передаёт скрипт бейджа ниже). Срабатывает один раз.
+  window.__geoApplied = false;
+  window.__fillGeo = function(city, state) {
+    if (window.__geoApplied) return;
+    window.__geoApplied = true;
+    city  = city  || 'your area';
+    state = state || 'your state';
+    var m = {
+      '{city}': city, '{City}': ucWords(city), '{CITY}': city.toUpperCase(),
+      '{state}': state, '{State}': ucWords(state), '{STATE}': state.toUpperCase(),
+      '{region}': state, '{Region}': ucWords(state), '{REGION}': state.toUpperCase(),
+      '{date}': p.get('date') || date, '{Date}': p.get('date') || date,
+      '{zip}': p.get('zip') || 'your area', '{country}': p.get('country') || 'the U.S.'
+    };
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false), n;
+    while ((n = w.nextNode())) {
+      var t = n.nodeValue, changed = false;
+      for (var k in m) { if (t.indexOf(k) !== -1) { t = t.split(k).join(m[k]); changed = true; } }
+      if (changed) n.nodeValue = t;
     }
-    if (changed) n.nodeValue = t;
-  }
+  };
+  // CF передал параметры — заполняем сразу (без ожидания IP).
+  if (pCity || pState) window.__fillGeo(pCity, pState);
+  // Иначе ждём гео по IP (его подставит скрипт бейджа). Подстраховка: если IP-гео
+  // не ответит за 1.5с — ставим дефолтные слова, чтобы не висел литерал {city}.
+  else setTimeout(function(){ window.__fillGeo('', ''); }, 1500);
 })();
 </script>
 <!-- ClickFlare lander tracking script. Вставляется перед </body> в каждый новый ленд.
@@ -397,7 +403,14 @@
     fetch("https://ipapi.co/json/").then(function(r){return r.json();}).then(function(d){
       var code=d.country_code==="US"?(d.region_code||"").toLowerCase():"";
       if(NAMES[code]) apply(code,NAMES[code]);
-    }).catch(function(){});
+      // Если CF-параметров не было — заполнить шапку/хедлайн/тексты тем же гео по IP,
+      // чтобы они совпадали с бейджем (а не показывали «your state»).
+      if(window.__fillGeo && !window.__geoApplied){
+        var city=(d.country_code==="US"&&d.city)?d.city:"";
+        var state=(d.country_code==="US")?(NAMES[code]||d.region||""):"";
+        window.__fillGeo(city,state);
+      }
+    }).catch(function(){ if(window.__fillGeo) window.__fillGeo("",""); });
   }
   if(document.readyState!=="loading")go();else document.addEventListener("DOMContentLoaded",go);
 })();
