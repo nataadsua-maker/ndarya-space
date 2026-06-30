@@ -403,10 +403,23 @@
     b.innerHTML='<img src="https://flagcdn.com/w160/us-'+code+'.png" alt="" style="height:72px;width:auto;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.5);display:block"><b style="font-size:27px;font-weight:800;color:#fff;white-space:nowrap;line-height:1.05;text-shadow:0 2px 8px rgba(0,0,0,.7)">'+name+'</b>';
     box.appendChild(b);
   }
+  // Штат в код флага: принимает 2-буквенный код или полное название («Florida»→«fl»).
+  function stateCode(s){
+    if(!s) return "";
+    s=(""+s).trim().toLowerCase();
+    if(NAMES[s]) return s;
+    for(var k in NAMES){ if(NAMES[k].toLowerCase()===s) return k; }
+    return "";
+  }
   function go(){
+    // Если CF передал штат параметром — бейдж сразу по нему (совпадает с текстом).
+    var pg=window.__pGeo||{};
+    var pCode=stateCode(pg.state);
+    if(pCode) apply(pCode,NAMES[pCode]);
     fetch("https://ipapi.co/json/").then(function(r){return r.json();}).then(function(d){
       var code=d.country_code==="US"?(d.region_code||"").toLowerCase():"";
-      if(NAMES[code]) apply(code,NAMES[code]);
+      // Бейдж по IP — только если параметра штата не было.
+      if(!pCode && NAMES[code]) apply(code,NAMES[code]);
       // Если CF-параметров не было — заполнить шапку/хедлайн/тексты тем же гео по IP,
       // чтобы они совпадали с бейджем (а не показывали «your state»).
       if(window.__fillGeo && !window.__geoApplied){
