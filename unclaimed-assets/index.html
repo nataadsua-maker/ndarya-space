@@ -337,8 +337,11 @@
   var p = new URLSearchParams(location.search);
   var d = new Date();
   var date = (d.getMonth()+1) + '/' + d.getDate() + '/' + d.getFullYear();
-  var pCity  = p.get('city')  || p.get('City')   || '';
-  var pState = p.get('state') || p.get('State')  || p.get('region') || p.get('Region') || '';
+  // Нераскрытый макрос (CF не подставил токен) приходит как «{region}» — считаем
+  // такой параметр отсутствующим, чтобы не светить литерал и упасть в гео по IP.
+  function clean(v){ return (v && v.indexOf('{')===-1 && v.indexOf('}')===-1) ? v : ''; }
+  var pCity  = clean(p.get('city'))  || clean(p.get('City'))  || '';
+  var pState = clean(p.get('state')) || clean(p.get('State')) || clean(p.get('region')) || clean(p.get('Region')) || '';
   function ucWords(s){ return s.replace(/\b\w/g, function(c){ return c.toUpperCase(); }); }
   // Заполняет макросы в DOM реальными city/state. Источник — CF-параметры, а если
   // их нет — гео по IP (его передаёт скрипт бейджа ниже). Срабатывает один раз.
