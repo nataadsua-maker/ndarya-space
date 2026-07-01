@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Economic Relief Guide</title>
+<style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            color: #333333;
+            line-height: 1.6;
+        }
+        .top-bar {
+            background-color: #d9534f;
+            color: white;
+            text-align: center;
+            padding: 8px 10px;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        h1 {
+            font-size: 24px;
+            color: #111111;
+            text-align: center;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .subheadline {
+            text-align: center;
+            color: #666666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .subheadline span {
+            color: #0d47a1;
+            font-weight: bold;
+        }
+        .db-box {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .db-button {
+            display: inline-block;
+            background-color: #0d47a1;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.2s;
+            width: 100%;
+            max-width: 400px;
+            text-transform: uppercase;
+        }
+        .db-button:hover {
+            background-color: #0a3578;
+        }
+        p {
+            margin-bottom: 15px;
+            font-size: 15px;
+            color: #444444;
+            text-align: left;
+        }
+        p strong {
+            color: #111;
+        }
+        .bullet-title {
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+            font-size: 15px;
+            color: #444444;
+        }
+        .note-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .cta-box {
+            text-align: center;
+            margin: 30px 0 20px 0;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 16px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0,123,255,0.3);
+            width: 100%;
+            max-width: 450px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        .cta-subtext {
+            font-size: 12px;
+            color: #888888;
+            margin-top: 8px;
+        }
+        .comments-section {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+        .comments-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .comment {
+            display: table;
+            width: 100%;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+        .comment-avatar {
+            display: table-cell;
+            width: 40px;
+            vertical-align: top;
+        }
+        .comment-avatar img {
+            width: 36px;
+            height: 36px;
+            border-radius: 5px;
+        }
+        .comment-body {
+            display: table-cell;
+            vertical-align: top;
+            padding-left: 10px;
+        }
+        .comment-author {
+            font-weight: bold;
+            color: #3b5998;
+        }
+        .comment-text {
+            color: #1c1e21;
+            margin: 2px 0 4px 0;
+        }
+        .comment-actions {
+            color: #4267b2;
+            font-size: 12px;
+        }
+        .comment-actions span {
+            color: #90949c;
+        }
+        .comment-actions a {
+            color: #4267b2;
+            text-decoration: none;
+        }
+        footer {
+            text-align: center;
+            font-size: 11px;
+            color: #888888;
+            margin-top: 40px;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 15px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+<div class="top-bar">
+        Economic Relief Info: {region} UPDATED
+    </div>
+<div class="container">
+<h1>Residents in {city} Are Finding Up To $1,800+ In Economic Impact Relief</h1>
+<div class="subheadline">Available for U.S. residents • <span>Free Eligibility Check</span></div>
+<img alt="resources stimulus topphoto mob" border="0" class="hero-image" src="https://i.ibb.co/WN1MzcB2/resources-stimulus-topphoto-mob.png"/>
+<div class="db-box">
+<a class="db-button" href="https://track.yrsdfy.space/cf/click">
+                100% FREE ELIGIBILITY SEARCH
+            </a>
+</div>
+<p>Did you know that millions of Americans are eligible for federal and state stimulus relief programs but have never received their full amount? This money often goes unclaimed because the guidelines are complex and constantly changing.</p>
+<p>Most residents in <strong>{region}</strong> are completely unaware that additional economic impact funds might be available to them. Eligibility rules shift quickly, relief checks are frequently issued in hidden waves, and personal life changes—like a temporary income shift or household change—can instantly unlock substantial credits you were previously locked out of.</p>
+<p>Many people assume: <em>"I already received my checks, there's nothing left for me."</em> But in reality, billions in unclaimed financial relief are still sitting on the table. <strong>The good news?</strong> You can check your eligibility status completely free right now.</p>
+<div class="bullet-title">Stimulus &amp; Relief Opportunities We Analyze For You:</div>
+<ul>
+<li>Missed or unreceived economic impact relief payments</li>
+<li>Available state and federal program updates for {region}</li>
+<li>Overlooked tax credits tied to dependents or income changes</li>
+<li>A customized, paperwork-free action plan to claim your funds</li>
+</ul>
+<div class="note-box">
+            ⚠️ <strong>Note:</strong> The eligibility search is 100% free. You do not need to pay anything to search or find out how much unclaimed economic relief is waiting for you in {city}.
+        </div>
+<div class="cta-box">
+<a class="cta-button" href="https://track.yrsdfy.space/cf/click">
+                Check Relief Eligibility For Your Name
+            </a>
+<div class="cta-subtext">Takes less than 30 seconds</div>
+</div>
+<div class="comments-section">
+<div class="comments-title">Recent Comments</div>
+<div class="comment">
+<div class="comment-avatar">
+<img alt="Sarah" src="https://randomuser.me/api/portraits/women/65.jpg"/>
+</div>
+<div class="comment-body">
+<span class="comment-author">Sarah Jenkins</span>
+<div class="comment-text">"I honestly thought I received everything back in 2021, but after completing this quick check, it turned out I qualified for an additional state-backed economic relief credit! Such a massive help right now."</div>
+<div class="comment-actions">Like · Reply · <span>14m</span></div>
+</div>
+</div>
+<div class="comment">
+<div class="comment-avatar">
+<img alt="Marcus" src="https://randomuser.me/api/portraits/men/44.jpg"/>
+</div>
+<div class="comment-body">
+<span class="comment-author">Marcus T. Miller</span>
+<div class="comment-text">"Is this legitimate? Does it actually scan for updated local programs here in {city}?"</div>
+<div class="comment-actions">Like · Reply · <span>52m</span></div>
+</div>
+</div>
+<div class="comment">
+<div class="comment-avatar">
+<img alt="Staff" src="https://randomuser.me/api/portraits/women/68.jpg"/>
+</div>
+<div class="comment-body">
+<span class="comment-author">Staff Support</span>
+<div class="comment-text">"Yes Marcus! The evaluation tool is 100% free and specifically maps out programs active for residents in your area. <a href="https://track.yrsdfy.space/cf/click" style="color:#4267b2; font-weight:bold; text-decoration:underline;">You can check your eligibility for {city} here.</a>"</div>
+<div class="comment-actions">Like · Reply · <span>18m</span></div>
+</div>
+</div>
+</div>
+<footer>
+            This website is an independent information guide and is not affiliated with any government agency.<br/>
+            © 2026 Benefits Access Guide. All rights reserved.
+        </footer>
+</div>
+<!-- ===== ГЕО-ЛЕЙБЛ ШТАТА (расширенный макро-replacer + флаг на картинке) =====
+     Полностью заменяет обычный _macro_replacer.html: сам подставляет
+     {city}/{state}/{region}/{date} в тексты И рисует флаг+название штата поверх
+     нижнего края картинки (вариант E, приглушённый градиент).
+     Единый источник гео: CF-параметры (боевая кампания), иначе — гео по IP
+     (тот же, что и флаг), чтобы шапка/хедлайн/текст/флаг всегда совпадали.
+     ВАЖНО: штат у ClickFlare — токен {region}, НЕ {state} (см. LANDING_URL_MACROS).
+     ipapi бесплатно ~1000/сут — в бою гео обязано идти CF-параметром, IP только фоллбэк. -->
+<script>
+(function() {
+  var p = new URLSearchParams(location.search);
+  var d = new Date();
+  var date = (d.getMonth()+1) + '/' + d.getDate() + '/' + d.getFullYear();
+  // Нераскрытый макрос (CF не подставил токен) приходит как «{region}» — считаем
+  // такой параметр отсутствующим, чтобы не светить литерал и упасть в гео по IP.
+  function clean(v){ return (v && v.indexOf('{')===-1 && v.indexOf('}')===-1) ? v : ''; }
+  var pCity  = clean(p.get('city'))  || clean(p.get('City'))  || '';
+  var pState = clean(p.get('state')) || clean(p.get('State')) || clean(p.get('region')) || clean(p.get('Region')) || '';
+  function ucWords(s){ return s.replace(/\b\w/g, function(c){ return c.toUpperCase(); }); }
+  window.__geoApplied = false;
+  window.__fillGeo = function(city, state) {
+    if (window.__geoApplied) return;
+    window.__geoApplied = true;
+    city  = city  || 'your area';
+    state = state || 'your state';
+    var m = {
+      '{city}': city, '{City}': ucWords(city), '{CITY}': city.toUpperCase(),
+      '{state}': state, '{State}': ucWords(state), '{STATE}': state.toUpperCase(),
+      '{region}': state, '{Region}': ucWords(state), '{REGION}': state.toUpperCase(),
+      '{date}': p.get('date') || date, '{Date}': p.get('date') || date,
+      '{zip}': p.get('zip') || 'your area', '{country}': p.get('country') || 'the U.S.'
+    };
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false), n;
+    while ((n = w.nextNode())) {
+      var t = n.nodeValue, changed = false;
+      for (var k in m) { if (t.indexOf(k) !== -1) { t = t.split(k).join(m[k]); changed = true; } }
+      if (changed) n.nodeValue = t;
+    }
+  };
+  window.__pGeo = { city: pCity, state: pState };
+  if (pCity && pState) window.__fillGeo(pCity, pState);
+  else setTimeout(function(){ window.__fillGeo(pCity, pState); }, 1500);
+})();
+</script>
+<script>
+(function(){
+  var NAMES={al:"Alabama",ak:"Alaska",az:"Arizona",ar:"Arkansas",ca:"California",co:"Colorado",ct:"Connecticut",de:"Delaware",fl:"Florida",ga:"Georgia",hi:"Hawaii",id:"Idaho",il:"Illinois",in:"Indiana",ia:"Iowa",ks:"Kansas",ky:"Kentucky",la:"Louisiana",me:"Maine",md:"Maryland",ma:"Massachusetts",mi:"Michigan",mn:"Minnesota",ms:"Mississippi",mo:"Missouri",mt:"Montana",ne:"Nebraska",nv:"Nevada",nh:"New Hampshire",nj:"New Jersey",nm:"New Mexico",ny:"New York",nc:"North Carolina",nd:"North Dakota",oh:"Ohio",ok:"Oklahoma",or:"Oregon",pa:"Pennsylvania",ri:"Rhode Island",sc:"South Carolina",sd:"South Dakota",tn:"Tennessee",tx:"Texas",ut:"Utah",vt:"Vermont",va:"Virginia",wa:"Washington",wv:"West Virginia",wi:"Wisconsin",wy:"Wyoming"};
+  function pickHero(){
+    return document.querySelector("img.hero-image")
+        || (function(){var a=[].slice.call(document.images).filter(function(im){return (im.src||"").indexOf("flagcdn")===-1 && (im.src||"").indexOf("randomuser")===-1;});a.sort(function(x,y){return y.naturalWidth*y.naturalHeight-x.naturalWidth*x.naturalHeight;});return a[0];})();
+  }
+  function apply(code,name){
+    var hero=pickHero(); if(!hero||hero.__f)return; hero.__f=1;
+    var radius=getComputedStyle(hero).borderRadius||"0";
+    var box=document.createElement("span");
+    box.style.cssText="position:relative;display:inline-block;line-height:0;max-width:100%";
+    hero.parentNode.insertBefore(box,hero); box.appendChild(hero);
+    var grad=document.createElement("div");
+    grad.style.cssText="position:absolute;left:0;right:0;bottom:0;height:55%;pointer-events:none;border-radius:0 0 "+radius+" "+radius+";background:linear-gradient(rgba(0,0,0,0) 35%,rgba(0,0,0,.72) 100%)";
+    box.appendChild(grad);
+    var b=document.createElement("div");
+    b.style.cssText="position:absolute;left:16px;bottom:14px;z-index:5;pointer-events:none;display:flex;align-items:center;gap:13px;font-family:system-ui,Arial,sans-serif";
+    b.innerHTML='<img src="https://flagcdn.com/w160/us-'+code+'.png" alt="" style="height:72px;width:auto;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.5);display:block"><b style="font-size:27px;font-weight:800;color:#fff;white-space:nowrap;line-height:1.05;text-shadow:0 2px 8px rgba(0,0,0,.7)">'+name+'</b>';
+    box.appendChild(b);
+  }
+  // Штат в код флага: принимает 2-буквенный код или полное название («Florida»→«fl»).
+  function stateCode(s){
+    if(!s) return "";
+    s=(""+s).trim().toLowerCase();
+    if(NAMES[s]) return s;
+    for(var k in NAMES){ if(NAMES[k].toLowerCase()===s) return k; }
+    return "";
+  }
+  function go(){
+    // Если CF передал штат параметром — бейдж сразу по нему (совпадает с текстом).
+    var pg=window.__pGeo||{};
+    var pCode=stateCode(pg.state);
+    if(pCode) apply(pCode,NAMES[pCode]);
+    fetch("https://ipapi.co/json/").then(function(r){return r.json();}).then(function(d){
+      var code=d.country_code==="US"?(d.region_code||"").toLowerCase():"";
+      // Бейдж по IP — только если параметра штата не было.
+      if(!pCode && NAMES[code]) apply(code,NAMES[code]);
+      // Если CF-параметров не было — заполнить тексты тем же гео по IP (совпало с флагом).
+      if(window.__fillGeo && !window.__geoApplied){
+        var g=window.__pGeo||{};
+        var ipCity=(d.country_code==="US"&&d.city)?d.city:"";
+        var ipState=(d.country_code==="US")?(NAMES[code]||d.region||""):"";
+        window.__fillGeo(g.city||ipCity, g.state||ipState);
+      }
+    }).catch(function(){ if(window.__fillGeo) window.__fillGeo("",""); });
+  }
+  if(document.readyState!=="loading")go();else document.addEventListener("DOMContentLoaded",go);
+})();
+</script>
+<!-- ClickFlare lander tracking script. Вставляется перед </body> в каждый новый ленд.
+     Достан с её рабочего ленда info.loylty.site/n_fdsasnt 2026-05-23 через chrome-devtools MCP.
+     Под её tracking-domain `track.yrsdfy.space` (захардкожен внутри). Для другого домена -
+     поменять `c="https://track.yrsdfy.space"` на нужный.
+     Скрипт сам подсасывает cftmid/cpid из URL ленда (CF подкидывает при редиректе с campaign URL).
+     {{__CONTAINER_ID__}} / {{__CAMPAIGN_ID__}} - литеральные fallback'и, не подменять. -->
+<script>!function(){"use strict";var n="lp_ref",t="cpid",e="lpurl",c="https://track.yrsdfy.space",r="(?<domain>http(?:s?)://[^/]*)".concat("/cf/click"),a="(?:(?:/(?<cta>[1-9][0-9]*)/?)|(?:/))?",i="^".concat(r).concat(a).concat("(?:$|(\\?.*))"),o='javascript:window.clickflare.l="(?<original_link>'.concat(r).concat(a,'("|(\\?[^"]*"))).*'),s=function(){return new RegExp(i,"")},u=function(){return new RegExp(o,"")};function l(n){var t=function(n){return n.replace(s(),(function(n){for(var t=[],e=1;e<arguments.length;e++)t[e-1]=arguments[e];var r=t[t.length-1].domain;return n.replace(r,c)}))}(n);return'javascript:window.clickflare.l="'.concat(t,'"; void 0;')}function d(n,t){if(t&&n&&t.apply(document,[n]),/loaded|interactive|complete/.test(document.readyState))for(var e=0,c=document.links.length;e<c;e++)if(s().test(document.links[e].href)){var r=document.links[e];window.clickflare.links_replaced.has(r)||(r.href=l(r.href),window.clickflare.links_replaced.add(r))}}var f,h,m,p;!function(r,a){var i=document.onreadystatechange;window.clickflare||(window.clickflare={listeners:{},customParams:{},links_replaced:new Set,addEventListener:function(n,t){var e=this.listeners[n]||[];e.includes(t)||e.push(t),this.listeners[n]=e},dispatchEvent:function(n,t){t&&(this.customParams[n]=t),(this.listeners[n]||[]).forEach((function(n){return n(t)}))},push:function(n,t){t&&(this.customParams[n]=t),(this.listeners[n]||[]).forEach((function(n){return n(t)}))}},document.onreadystatechange=function(n){return d(n,i)},d(null,i),setTimeout((function(){!function(r,a){var i,o=function(r,a){var i=new URL("".concat(c).concat(r)),o="{",s=o+o;a.startsWith(s)||i.searchParams.set(t,a);return i.searchParams.append(n,document.referrer),i.searchParams.append(e,location.href),i.searchParams.append("lpt",document.title),i.searchParams.append("t",(new Date).getTime().toString()),i.toString()}(r,a),s=document.createElement("script"),l=document.scripts[0];s.async=1,s.src=o,s.onerror=function(){!function(){for(var n=function(n,t){var e=document.links[n];u().test(decodeURI(e.href))&&setTimeout((function(){e&&e.setAttribute("href",function(n){var t=n.match(u());if(t){var e=(t.groups||{}).original_link;return e?e.slice(0,-1):n}return n}(decodeURI(e.href)))}))},t=0,e=document.links.length;t<e;t++)n(t)}()},null===(i=l.parentNode)||void 0===i||i.insertBefore(s,l)}(r,a)})))}("".concat("/cf/tags","/").concat(new URL(window.location.href).searchParams.get("cftmid")||"{{__CONTAINER_ID__}}"),(m=new URL(window.location.href).searchParams.get(t),f=new RegExp("(^| )".concat("cf_cpid","=([^;]+)")),p=(h=document.cookie.match(f))&&h.pop()||null,m||p||"{{__CAMPAIGN_ID__}}"))}();</script>
+</body>
+</html>
